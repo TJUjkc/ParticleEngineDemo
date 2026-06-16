@@ -1,0 +1,52 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build ParticleEngine",
+            "type": "shell",
+            "command": "g++",
+            "args": [
+                "src/main.cpp",
+                "-o", "ParticleEngine.exe",
+                "-I", "src",
+                "-I", "C:/msys64/ucrt64/include",
+                "-L", "C:/msys64/ucrt64/lib",
+                "-lfreeglut",
+                "-lopengl32",
+                "-lglu32",
+                "-std=c++17",
+                "-g"
+            ],
+            "options": {
+                "env": {
+                    "PATH": "C:\\msys64\\ucrt64\\bin;${env:PATH}"
+                }
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            },
+            "problemMatcher": "$gcc"
+        },
+        {
+            "label": "Build and Run ParticleEngine",
+            "type": "shell",
+            "command": "g++ src/main.cpp -o ParticleEngine.exe -I src -I C:/msys64/ucrt64/include -L C:/msys64/ucrt64/lib -lfreeglut -lopengl32 -lglu32 -std=c++17 -g && Start-Process -FilePath .\\ParticleEngine.exe -WorkingDirectory '${workspaceFolder}'",
+            "options": {
+                "env": {
+                    "PATH": "C:\\msys64\\ucrt64\\bin;${env:PATH}"
+                }
+            },
+            "group": "none",
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            },
+            "problemMatcher": "$gcc"
+        }
+    ]
+}
